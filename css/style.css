@@ -77,9 +77,11 @@ h6 {
 body {
   background-color: #f9fbfd;
 }
-.lock body {
-  overflow: hidden;
-  touch-action: none;
+@media (max-width: 47.99875em) {
+  .lock body {
+    overflow: hidden;
+    touch-action: none;
+  }
 }
 .wrapper {
   min-height: 100%;
@@ -311,6 +313,9 @@ body {
   ._header-scroll {
     padding-bottom: 0.625rem;
   }
+}
+.lock ._header-scroll {
+  min-height: 70px;
 }
 
 .icon-menu {
