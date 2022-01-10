@@ -420,6 +420,8 @@ body {
   font-weight: 500;
   line-height: 1.25;
   column-gap: 33px;
+  flex-wrap: wrap;
+  row-gap: 15px;
 }
 @media (min-width: 72.5em) {
   .footer__list {
