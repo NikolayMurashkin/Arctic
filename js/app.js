@@ -338,7 +338,8 @@
           (s = window.innerHeight - window.innerHeight / a),
           window.pageYOffset > r - s && window.pageYOffset < r + o
             ? n.classList.add("_scrolled")
-            : n.classList.remove("_scrolled");
+            : n.classList.contains("_anim-no-hide") ||
+              n.classList.remove("_scrolled");
       }
     }
     function e(t) {

@@ -131,26 +131,6 @@ body {
   object-fit: contain;
 }
 
-.block-title {
-  font-weight: 600;
-  line-height: 1.4;
-}
-@media (min-width: 74.375em) {
-  .block-title {
-    font-size: 1.75rem;
-  }
-}
-@media (min-width: 20em) and (max-width: 74.375em) {
-  .block-title {
-    font-size: clamp( 1.5rem , 1.408045977rem  +  0.4597701149vw , 1.75rem );
-  }
-}
-@media (max-width: 20em) {
-  .block-title {
-    font-size: 1.5rem;
-  }
-}
-
 .header {
   transition: all 0.3s ease 0s;
   position: fixed;
@@ -197,6 +177,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.header__logo {
+  padding: 0px 30px 0px 0px;
+}
 @media (max-width: 47.99875em) {
   .menu__body {
     overflow: auto;
@@ -225,6 +208,8 @@ body {
 .menu__list {
   display: flex;
   column-gap: 33px;
+  flex-wrap: wrap;
+  row-gap: 15px;
 }
 @media (max-width: 47.99875em) {
   .menu__list {
@@ -519,11 +504,6 @@ body {
   }
 }
 
-.page__travel {
-  transform: translate(0px, 120%);
-  opacity: 0;
-  transition: all 0.8s ease 0s;
-}
 .hero {
   background: url("../img/hero/hero-bg.jpg") center 45%/cover no-repeat;
   color: #f9fbfd;
@@ -561,9 +541,6 @@ body {
 .hero__title {
   font-weight: 700;
   line-height: 1.2222222222;
-  transform: translate(0px, 120%);
-  opacity: 0;
-  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .hero__title {
@@ -599,7 +576,7 @@ body {
   line-height: 1.2;
   transform: translate(0px, 120%);
   opacity: 0;
-  transition: all 1s ease 2s;
+  transition: all 1s ease 0s;
 }
 @media (min-width: 74.375em) {
   .hero__subtitle {
@@ -660,6 +637,7 @@ body {
   }
 }
 .travel__left {
+  overflow: hidden;
   flex: 0 1 50%;
 }
 @media (min-width: 72.5em) {
@@ -687,14 +665,23 @@ body {
     margin-bottom: 40px;
   }
 }
+.travel__title {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
 .travel__title:not(:last-child) {
   margin-bottom: 40px;
 }
 .travel__text {
   line-height: 1.5;
   font-size: 1rem;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 .travel__img-ibg {
+  overflow: hidden;
   padding-bottom: 25.94%;
   flex: 0 1 50%;
 }
@@ -713,6 +700,11 @@ body {
   .travel__img-ibg {
     padding-bottom: 65.94%;
   }
+}
+.travel__img-ibg img {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 
 .advantages {
@@ -751,6 +743,9 @@ body {
 }
 .advantages__title {
   text-align: center;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .advantages__title {
@@ -769,6 +764,7 @@ body {
 }
 .advantages__items {
   display: flex;
+  overflow: hidden;
 }
 @media (max-width: 47.99875em) {
   .advantages__items {
@@ -781,6 +777,21 @@ body {
   padding: 30px;
   flex: 0 1 33.333%;
   transition: all 0.3s ease 0s;
+}
+.advantages__item:first-child {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: transform 0.6s ease 0s;
+}
+.advantages__item:nth-child(2) {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: transform 0.6s ease 0.4s;
+}
+.advantages__item:last-child {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: transform 0.6s ease 0.8s;
 }
 @media (min-width: 72.5em) {
   .advantages__item {
@@ -888,6 +899,9 @@ body {
 .cruise__title {
   text-align: center;
   color: #011c40;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .cruise__title {
@@ -908,15 +922,19 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
+  overflow: hidden;
 }
 .item-cruise {
   color: #f9fbfd;
   position: relative;
   font-size: 1.125rem;
   line-height: 1.5;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 .item-cruise__hover {
-  position: absolute;
+  position: relative;
   background-color: #011c40;
   width: 100%;
   height: 100%;
@@ -933,6 +951,9 @@ body {
 }
 .item-cruise__body {
   flex: 1 1 auto;
+}
+.item-cruise__body:not(:last-child) {
+  margin-bottom: 20px;
 }
 .item-cruise__title {
   font-weight: 500;
@@ -975,63 +996,9 @@ body {
   }
 }
 .item-cruise__image-ibg {
-  padding-bottom: 160.8333333333%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(180deg, rgba(1, 28, 64, 0) 50%, #011c40 100%);
-}
-@media (max-width: 76.1875em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 120.625%;
-  }
-}
-@media (max-width: 71.875em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 128.6666666667%;
-  }
-}
-@media (max-width: 66.25em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 160.8333333333%;
-  }
-}
-@media (max-width: 58.0625em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 101.5789473684%;
-  }
-}
-@media (max-width: 55.625em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 107.2222222222%;
-  }
-}
-@media (max-width: 52.875em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 120.625%;
-  }
-}
-@media (max-width: 44.375em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 137.8571428571%;
-  }
-}
-@media (max-width: 41.25em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 160.8333333333%;
-  }
-}
-@media (max-width: 36.1875em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 87.7272727273%;
-  }
-}
-@media (max-width: 29.9375em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 113.5294117647%;
-  }
-}
-@media (max-width: 23.4375em) {
-  .item-cruise__image-ibg {
-    padding-bottom: 142.962962963%;
-  }
 }
 .item-cruise__label {
   position: absolute;
@@ -1041,6 +1008,7 @@ body {
 
 .booking {
   background: url("../img/booking/booking-bg.jpg") 0 0/cover no-repeat;
+  overflow: hidden;
 }
 @media (min-width: 74.375em) {
   .booking {
@@ -1078,6 +1046,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 @media (max-width: 47.99875em) {
   .booking__container {
@@ -1113,6 +1082,9 @@ body {
 .booking__title {
   font-weight: 700;
   line-height: 1.5;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .booking__title {
@@ -1152,6 +1124,9 @@ body {
 .booking__text {
   max-width: 352px;
   line-height: 1.5;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .booking__text {
@@ -1179,6 +1154,9 @@ body {
   background-color: #011c40;
   display: flex;
   flex-direction: column;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 72.5em) {
   .form {
@@ -1346,6 +1324,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 @media (max-width: 47.99875em) {
   .contacts__container {
@@ -1358,6 +1337,9 @@ body {
   flex-grow: 0;
   flex-shrink: 1;
   height: 306px;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 72.5em) {
   .contacts__map {
@@ -1390,6 +1372,7 @@ body {
   padding-left: 20px;
   color: #011c40;
   line-height: 1.5;
+  overflow: hidden;
 }
 @media (min-width: 72.5em) {
   .contacts__contacts {
@@ -1414,6 +1397,9 @@ body {
 .contacts__title {
   font-weight: 500;
   font-size: 1.125rem;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 .contacts__title:not(:last-child) {
   margin-bottom: 45px;
@@ -1423,6 +1409,9 @@ body {
   position: relative;
   padding: 0px 0px 0px 28px;
   font-style: normal;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 .contacts__address:not(:last-child) {
   margin-bottom: 33px;
@@ -1441,6 +1430,9 @@ body {
   position: relative;
   padding: 0px 0px 0px 28px;
   position: relative;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 .contacts__phone::before {
   content: "";
@@ -1469,6 +1461,32 @@ body {
     width: 100%;
     left: 0;
   }
+}
+
+.block-title {
+  font-weight: 600;
+  line-height: 1.4;
+}
+@media (min-width: 74.375em) {
+  .block-title {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 74.375em) {
+  .block-title {
+    font-size: clamp( 1.5rem , 1.408045977rem  +  0.4597701149vw , 1.75rem );
+  }
+}
+@media (max-width: 20em) {
+  .block-title {
+    font-size: 1.5rem;
+  }
+}
+
+._anim-show._scrolled,
+._scrolled ._anim-show {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
 
 ._scrolled {
