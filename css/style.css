@@ -541,6 +541,9 @@ body {
 .hero__title {
   font-weight: 700;
   line-height: 1.2222222222;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .hero__title {
