@@ -10,15 +10,15 @@
       (this.nodes = document.querySelectorAll("[data-da]"));
     for (let t = 0; t < this.nodes.length; t++) {
       const e = this.nodes[t],
-        o = e.dataset.da.trim().split(","),
-        n = {};
-      (n.element = e),
-        (n.parent = e.parentNode),
-        (n.destination = document.querySelector(o[0].trim())),
-        (n.breakpoint = o[1] ? o[1].trim() : "767"),
-        (n.place = o[2] ? o[2].trim() : "last"),
-        (n.index = this.indexInParent(n.parent, n.element)),
-        this.оbjects.push(n);
+        n = e.dataset.da.trim().split(","),
+        o = {};
+      (o.element = e),
+        (o.parent = e.parentNode),
+        (o.destination = document.querySelector(n[0].trim())),
+        (o.breakpoint = n[1] ? n[1].trim() : "767"),
+        (o.place = n[2] ? n[2].trim() : "last"),
+        (o.index = this.indexInParent(o.parent, o.element)),
+        this.оbjects.push(o);
     }
     this.arraySort(this.оbjects),
       (this.mediaQueries = Array.prototype.map.call(
@@ -32,55 +32,55 @@
       )),
       (this.mediaQueries = Array.prototype.filter.call(
         this.mediaQueries,
-        function (t, e, o) {
-          return Array.prototype.indexOf.call(o, t) === e;
+        function (t, e, n) {
+          return Array.prototype.indexOf.call(n, t) === e;
         }
       ));
     for (let e = 0; e < this.mediaQueries.length; e++) {
-      const o = this.mediaQueries[e],
-        n = String.prototype.split.call(o, ","),
-        a = window.matchMedia(n[0]),
-        r = n[1],
+      const n = this.mediaQueries[e],
+        o = String.prototype.split.call(n, ","),
+        r = window.matchMedia(o[0]),
+        a = o[1],
         s = Array.prototype.filter.call(this.оbjects, function (t) {
-          return t.breakpoint === r;
+          return t.breakpoint === a;
         });
-      a.addListener(function () {
-        t.mediaHandler(a, s);
+      r.addListener(function () {
+        t.mediaHandler(r, s);
       }),
-        this.mediaHandler(a, s);
+        this.mediaHandler(r, s);
     }
   }),
     (t.prototype.mediaHandler = function (t, e) {
       if (t.matches)
         for (let t = 0; t < e.length; t++) {
-          const o = e[t];
-          (o.index = this.indexInParent(o.parent, o.element)),
-            this.moveTo(o.place, o.element, o.destination);
+          const n = e[t];
+          (n.index = this.indexInParent(n.parent, n.element)),
+            this.moveTo(n.place, n.element, n.destination);
         }
       else
         for (let t = e.length - 1; t >= 0; t--) {
-          const o = e[t];
-          o.element.classList.contains(this.daClassname) &&
-            this.moveBack(o.parent, o.element, o.index);
+          const n = e[t];
+          n.element.classList.contains(this.daClassname) &&
+            this.moveBack(n.parent, n.element, n.index);
         }
     }),
-    (t.prototype.moveTo = function (t, e, o) {
+    (t.prototype.moveTo = function (t, e, n) {
       e.classList.add(this.daClassname),
-        "last" === t || t >= o.children.length
-          ? o.insertAdjacentElement("beforeend", e)
+        "last" === t || t >= n.children.length
+          ? n.insertAdjacentElement("beforeend", e)
           : "first" !== t
-          ? o.children[t].insertAdjacentElement("beforebegin", e)
-          : o.insertAdjacentElement("afterbegin", e);
+          ? n.children[t].insertAdjacentElement("beforebegin", e)
+          : n.insertAdjacentElement("afterbegin", e);
     }),
-    (t.prototype.moveBack = function (t, e, o) {
+    (t.prototype.moveBack = function (t, e, n) {
       e.classList.remove(this.daClassname),
-        void 0 !== t.children[o]
-          ? t.children[o].insertAdjacentElement("beforebegin", e)
+        void 0 !== t.children[n]
+          ? t.children[n].insertAdjacentElement("beforebegin", e)
           : t.insertAdjacentElement("beforeend", e);
     }),
     (t.prototype.indexInParent = function (t, e) {
-      const o = Array.prototype.slice.call(t.children);
-      return Array.prototype.indexOf.call(o, e);
+      const n = Array.prototype.slice.call(t.children);
+      return Array.prototype.indexOf.call(n, e);
     }),
     (t.prototype.arraySort = function (t) {
       "min" === this.type
@@ -130,30 +130,30 @@
       );
     },
   };
-  let o = !0,
-    n = (t = 500) => {
+  let n = !0,
+    o = (t = 500) => {
       let e = document.querySelector("body");
-      if (o) {
-        let n = document.querySelectorAll("[data-lp]");
+      if (n) {
+        let o = document.querySelectorAll("[data-lp]");
         setTimeout(() => {
-          for (let t = 0; t < n.length; t++) {
-            n[t].style.paddingRight = "0px";
+          for (let t = 0; t < o.length; t++) {
+            o[t].style.paddingRight = "0px";
           }
           (e.style.paddingRight = "0px"),
             document.documentElement.classList.remove("lock");
         }, t),
-          (o = !1),
+          (n = !1),
           setTimeout(function () {
-            o = !0;
+            n = !0;
           }, t);
       }
     },
-    a = (t = 500) => {
+    r = (t = 500) => {
       let e = document.querySelector("body");
-      if (o) {
-        let n = document.querySelectorAll("[data-lp]");
-        for (let t = 0; t < n.length; t++) {
-          n[t].style.paddingRight =
+      if (n) {
+        let o = document.querySelectorAll("[data-lp]");
+        for (let t = 0; t < o.length; t++) {
+          o[t].style.paddingRight =
             window.innerWidth -
             document.querySelector(".wrapper").offsetWidth +
             "px";
@@ -163,23 +163,23 @@
           document.querySelector(".wrapper").offsetWidth +
           "px"),
           document.documentElement.classList.add("lock"),
-          (o = !1),
+          (n = !1),
           setTimeout(function () {
-            o = !0;
+            n = !0;
           }, t);
       }
     };
-  function r(t) {
+  function a(t) {
     setTimeout(() => {
       window.FLS && console.log(t);
     }, 0);
   }
   function s(t) {
-    return t.filter(function (t, e, o) {
-      return o.indexOf(t) === e;
+    return t.filter(function (t, e, n) {
+      return n.indexOf(t) === e;
     });
   }
-  let i = (t, e = !1, o = 500, a = 0) => {
+  let i = (t, e = !1, n = 500, r = 0) => {
     const s = document.querySelector(t);
     if (s) {
       let i = "",
@@ -188,14 +188,14 @@
         ((i = "header.header"), (c = document.querySelector(i).offsetHeight));
       let l = {
         speedAsDuration: !0,
-        speed: o,
+        speed: n,
         header: i,
-        offset: a,
+        offset: r,
         easing: "easeOutQuad",
       };
       if (
         (document.documentElement.classList.contains("menu-open") &&
-          (n(), document.documentElement.classList.remove("menu-open")),
+          (o(), document.documentElement.classList.remove("menu-open")),
         "undefined" != typeof SmoothScroll)
       )
         new SmoothScroll().animateScroll(s, "", l);
@@ -203,8 +203,8 @@
         let t = s.getBoundingClientRect().top + scrollY;
         window.scrollTo({ top: c ? t - c : t, behavior: "smooth" });
       }
-      r(`[gotoBlock]: Юхуу...едем к ${t}`);
-    } else r(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${t}`);
+      a(`[gotoBlock]: Юхуу...едем к ${t}`);
+    } else a(`[gotoBlock]: Ой ой..Такого блока нет на странице: ${t}`);
   };
   class c {
     constructor(t) {
@@ -234,21 +234,21 @@
               }|${t.dataset.watchMargin ? t.dataset.watchMargin : "0px"}|${t.dataset.watchThreshold ? t.dataset.watchThreshold : 0}`;
             })
           ).forEach((e) => {
-            let o = e.split("|"),
-              n = { root: o[0], margin: o[1], threshold: o[2] },
-              a = Array.from(t).filter(function (t) {
+            let n = e.split("|"),
+              o = { root: n[0], margin: n[1], threshold: n[2] },
+              r = Array.from(t).filter(function (t) {
                 let e = t.dataset.watchRoot ? t.dataset.watchRoot : null,
-                  o = t.dataset.watchMargin ? t.dataset.watchMargin : "0px",
-                  a = t.dataset.watchThreshold ? t.dataset.watchThreshold : 0;
+                  n = t.dataset.watchMargin ? t.dataset.watchMargin : "0px",
+                  r = t.dataset.watchThreshold ? t.dataset.watchThreshold : 0;
                 if (
-                  String(e) === n.root &&
-                  String(o) === n.margin &&
-                  String(a) === n.threshold
+                  String(e) === o.root &&
+                  String(n) === o.margin &&
+                  String(r) === o.threshold
                 )
                   return t;
               }),
-              r = this.getScrollWatcherConfig(n);
-            this.scrollWatcherInit(a, r);
+              a = this.getScrollWatcherConfig(o);
+            this.scrollWatcherInit(r, a);
           });
       } else
         this.scrollWatcherLogging("Сплю, нет объектов для слежения. ZzzZZzz");
@@ -303,14 +303,14 @@
         this.scrollWatcherLogging(`Я перестал следить за ${t.classList}`);
     }
     scrollWatcherLogging(t) {
-      this.config.logging && r(`[Наблюдатель]: ${t}`);
+      this.config.logging && a(`[Наблюдатель]: ${t}`);
     }
     scrollWatcherCallback(t, e) {
-      const o = t.target;
-      this.scrollWatcherIntersecting(t, o),
-        o.hasAttribute("data-watch-once") &&
+      const n = t.target;
+      this.scrollWatcherIntersecting(t, n),
+        n.hasAttribute("data-watch-once") &&
           t.isIntersecting &&
-          this.scrollWatcherOff(o, e),
+          this.scrollWatcherOff(n, e),
         document.dispatchEvent(
           new CustomEvent("watcherCallback", { detail: { entry: t } })
         );
@@ -324,8 +324,35 @@
         document.dispatchEvent(t);
       });
     }
-  }, 0),
-    (window.FLS = !0),
+  }, 0);
+  const d = document.querySelectorAll("._anim-items");
+  if (d.length > 0) {
+    function t(t) {
+      for (let t = 0; t < d.length; t++) {
+        const n = d[t],
+          o = n.offsetHeight,
+          r = e(n).top,
+          a = 4;
+        let s = window.innerHeight - o / a;
+        o > window.innerHeight &&
+          (s = window.innerHeight - window.innerHeight / a),
+          window.pageYOffset > r - s && window.pageYOffset < r + o
+            ? n.classList.add("_scrolled")
+            : n.classList.remove("_scrolled");
+      }
+    }
+    function e(t) {
+      const e = t.getBoundingClientRect(),
+        n = window.pageXOffset || document.documentElement.scrollLeft,
+        o = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: e.top + o, left: e.left + n };
+    }
+    window.addEventListener("scroll", t),
+      setTimeout(() => {
+        t();
+      }, 300);
+  }
+  (window.FLS = !0),
     (function (t) {
       let e = new Image();
       (e.onload = e.onerror =
@@ -343,9 +370,9 @@
       let t = document.querySelector(".icon-menu");
       t &&
         t.addEventListener("click", function (t) {
-          o &&
+          n &&
             (((t = 500) => {
-              document.documentElement.classList.contains("lock") ? n(t) : a(t);
+              document.documentElement.classList.contains("lock") ? o(t) : r(t);
             })(),
             document.documentElement.classList.toggle("menu-open"));
         });
@@ -365,23 +392,23 @@
         if ("click" === t.type) {
           const e = t.target;
           if (e.closest("[data-goto]")) {
-            const o = e.closest("[data-goto]"),
-              n = o.dataset.goto ? o.dataset.goto : "",
-              a = !!o.hasAttribute("data-goto-header"),
-              r = o.dataset.gotoSpeed ? o.dataset.gotoSpeed : "500";
-            i(n, a, r), t.preventDefault();
+            const n = e.closest("[data-goto]"),
+              o = n.dataset.goto ? n.dataset.goto : "",
+              r = !!n.hasAttribute("data-goto-header"),
+              a = n.dataset.gotoSpeed ? n.dataset.gotoSpeed : "500";
+            i(o, r, a), t.preventDefault();
           }
         } else if ("watcherCallback" === t.type && t.detail) {
           const e = t.detail.entry,
-            o = e.target;
-          if ("navigator" === o.dataset.watch) {
-            const t = o.id,
-              n =
+            n = e.target;
+          if ("navigator" === n.dataset.watch) {
+            const t = n.id,
+              o =
                 (document.querySelector("[data-goto]._navigator-active"),
                 document.querySelector(`[data-goto="${t}"]`));
             e.isIntersecting
-              ? n && n.classList.add("_navigator-active")
-              : n && n.classList.remove("_navigator-active");
+              ? o && o.classList.add("_navigator-active")
+              : o && o.classList.remove("_navigator-active");
           }
         }
       }
@@ -392,32 +419,32 @@
       l = !0;
       const t = document.querySelector("header.header"),
         e = t.hasAttribute("data-scroll-show"),
-        o = t.dataset.scrollShow ? t.dataset.scrollShow : 500,
-        n = t.dataset.scroll ? t.dataset.scroll : 1;
-      let a,
-        r = 0;
+        n = t.dataset.scrollShow ? t.dataset.scrollShow : 500,
+        o = t.dataset.scroll ? t.dataset.scroll : 1;
+      let r,
+        a = 0;
       document.addEventListener("windowScroll", function (s) {
         const i = window.scrollY;
-        clearTimeout(a),
-          i >= n
+        clearTimeout(r),
+          i >= o
             ? (!t.classList.contains("_header-scroll") &&
                 t.classList.add("_header-scroll"),
               e &&
-                (i > r
+                (i > a
                   ? t.classList.contains("_header-show") &&
                     t.classList.remove("_header-show")
                   : !t.classList.contains("_header-show") &&
                     t.classList.add("_header-show"),
-                (a = setTimeout(() => {
+                (r = setTimeout(() => {
                   !t.classList.contains("_header-show") &&
                     t.classList.add("_header-show");
-                }, o))))
+                }, n))))
             : (t.classList.contains("_header-scroll") &&
                 t.classList.remove("_header-scroll"),
               e &&
                 t.classList.contains("_header-show") &&
                 t.classList.remove("_header-show")),
-          (r = i <= 0 ? 0 : i);
+          (a = i <= 0 ? 0 : i);
       });
     })();
 })();
