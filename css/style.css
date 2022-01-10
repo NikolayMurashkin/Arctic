@@ -519,6 +519,11 @@ body {
   }
 }
 
+.page__travel {
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
+}
 .hero {
   background: url("../img/hero/hero-bg.jpg") center 45%/cover no-repeat;
   color: #f9fbfd;
@@ -555,8 +560,10 @@ body {
 }
 .hero__title {
   font-weight: 700;
-  line-height: 66px;
   line-height: 1.2222222222;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 0.8s ease 0s;
 }
 @media (min-width: 74.375em) {
   .hero__title {
@@ -589,8 +596,10 @@ body {
   }
 }
 .hero__subtitle {
-  font-size: 20px;
   line-height: 1.2;
+  transform: translate(0px, 120%);
+  opacity: 0;
+  transition: all 1s ease 2s;
 }
 @media (min-width: 74.375em) {
   .hero__subtitle {
@@ -1460,4 +1469,9 @@ body {
     width: 100%;
     left: 0;
   }
+}
+
+._scrolled {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
